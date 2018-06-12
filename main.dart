@@ -1,10 +1,15 @@
-bool trueIfNull(int a, int b) {
-  print("a:${a}, b:${b}");
-  return a == null && b == null;
+class Greeter {
+  var greeting;
+  var _name;
+  sayHello() {
+  return "$greeting ${name}";
+  }
+  get name => _name;
+  set name(value) => _name = value;
 }
 main() {
-  final bool nums = trueIfNull(1,2);
-  final bool strings = trueIfNull("Hello ", null);
-  print("$nums");
-  print("$strings");
+  var greeter = new Greeter();
+  greeter.greeting = "Hello ";
+  greeter.name = "World";
+  print(greeter.sayHello());
 }
