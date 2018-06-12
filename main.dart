@@ -1,15 +1,19 @@
-class Greeter {
-  var greeting;
-  var _name;
-  sayHello() {
-  return "$greeting ${name}";
-  }
-  get name => _name;
-  set name(value) => _name = value;
+class Welcomer {
+  printGreeting() => print("Hello ${name}");
+  var name;
+}
+class Greeter implements Welcomer {
+  printGreeting () => print("Greetings ${name}");
+  var name;
+}
+void sayHello(Welcomer welcomer) {
+  welcomer.printGreeting();
 }
 main() {
+  var welcomer = new Welcomer();
+  welcomer.name = "Tom";
+  sayHello(welcomer);
   var greeter = new Greeter();
-  greeter.greeting = "Hello ";
-  greeter.name = "World";
-  print(greeter.sayHello());
+  greeter.name = "Tom";
+  sayHello(greeter);
 }
